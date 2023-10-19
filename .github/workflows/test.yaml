@@ -1,7 +1,7 @@
 name: TEST
 
 on:
-  pull_requese:
+  pull_request:
     types:
       - opened
   issue_comment:
