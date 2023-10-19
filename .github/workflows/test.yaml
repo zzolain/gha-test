@@ -1,8 +1,11 @@
 name: TEST
 
 on:
+  pull_requese:
+    types:
+      - opened
   issue_comment:
-    type:
+    types:
       - created
 
 env:
@@ -10,6 +13,7 @@ env:
 
 jobs:
   test_job:
+    if: contains(github.event.comment.body, '/lighthouse')
     runs-on: ubuntu-latest
     steps:
       - name: Add comment
