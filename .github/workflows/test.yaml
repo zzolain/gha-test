@@ -1,0 +1,21 @@
+name: TEST
+
+on:
+  issue_comment:
+    type:
+      - created
+
+env:
+  NODE_VERSION: '18.x'
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment
+        id: add_comment
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setOutput('comments', 'Hello world');
+      
