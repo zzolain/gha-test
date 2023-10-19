@@ -13,7 +13,7 @@ env:
 
 jobs:
   test_job:
-    if: or(github.event_name == 'pull_request', contains(github.event.comment.body, '/lighthouse'))
+    if: github.event_name == 'pull_request' || contains(github.event.comment.body, '/lighthouse')
     runs-on: ubuntu-latest
     steps:
       - name: Add comment
